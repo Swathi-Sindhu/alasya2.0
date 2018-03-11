@@ -122,7 +122,7 @@ def priceof(term):
         tts.save("hel.mp3")
         os.system("mpg321 hel.mp3")
 
-
+#check sync with github
 
 
 
