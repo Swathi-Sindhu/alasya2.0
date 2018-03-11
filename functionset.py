@@ -123,7 +123,7 @@ def priceof(term):
         os.system("mpg321 hel.mp3")
 
 #check sync with github
-
+#check from avinash
 
 
 
