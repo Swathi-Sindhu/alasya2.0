@@ -13,7 +13,12 @@ f = requests.get(link)
 #print(f.text)
 a=f.text
 b=a.find('cb-col cb-col-25 cb-mtch-blk')
+c=a.find('"_self" class="cb-font-12"><div class="cb-hmscg-bat-txt cb-ovr-flo ">')
+d=a.find('/div></div><div class="cb-hmscg-bwl-txt')
+#print(d)
+#print(c)
 #print(b)
+
 team=""
 for i in range(40,100):
     if  f.text[b+i] == '"':
@@ -22,32 +27,32 @@ for i in range(40,100):
 
 print(team)
 team1=""
-for i in range(282,800):
-    if  f.text[b+i] == '<':
+for i in range(108,150):
+    if  f.text[c+i] == '<':
         break
-    team1=team1 + f.text[b+i]
+    team1=team1 + f.text[c+i]
 print(team1)
 
 score1=""
-for i in range(357,800):
-    if  f.text[b+i] == '<' or f.text[b+i] == 'O':
+for i in range(183,800):
+    if  f.text[c+i] == '<' or f.text[c+i] == 'O':
         break
-    score1=score1 + f.text[b+i]
+    score1=score1 + f.text[c+i]
 print(score1)
 
 
 team2=""
-for i in range(460,800):
-    if  f.text[b+i] == '<':
+for i in range(81,800):
+    if  f.text[d+i] == '<':
         break
-    team2=team2 + f.text[b+i]
+    team2=team2 + f.text[d+i]
 print(team2)
 
 score2=""
-for i in range(535,800):
-    if  f.text[b+i] == '<':
+for i in range(155,800):
+    if  f.text[d+i] == '<':
         break
-    score2=score2 + f.text[b+i]
+    score2=score2 + f.text[d+i]
 print(score2)
 if team1=="RSA":
     team1 = "southafrica"
@@ -115,6 +120,7 @@ score1=score1.replace("("," in ")
 score2=score2.replace("/"," for ")
 score2=score2.replace("."," point ")
 score2=score2.replace("("," in ")
+score2=score2.replace("Ovs" ,"overs ")
 team2=team2.replace("RSA","southafrica")
 team2=team2.replace(">","")
 
