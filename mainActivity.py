@@ -3,6 +3,7 @@ import speech_recognition as sr
 from gtts import gTTS
 import os
 import random
+from PyDictionary import PyDictionary
 
 
 r = sr.Recognizer()
@@ -87,6 +88,15 @@ elif 'where' in res and 'are' in res and 'you' in res:
     tts = gTTS(text='i am here! right in your computer.', lang='en-us')
     tts.save("hel.mp3")
     os.system("mpg321 hel.mp3")
+elif 'meaning of' in res or 'mean' in res or 'means' in res or (len(res)==3 and 'what' in res and 'is' in res):
+    res = functionset.genkeyw(res)
+    res = res-{'hi','hello','meaning','mean','means','do','does'}
+    meaning = str(res)
+    meaning = meaning[2:-2]
+    print(meaning)
+    dictionary = PyDictionary()
+    print(dictionary.meaning(meaning))
+
 else:
     tts = gTTS(text="sorry! i cannot do that", lang='en-us')
     tts.save("hel.mp3")
